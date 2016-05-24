@@ -36,7 +36,7 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should getSessions method get sessions', function () {
+  it('should getSessions method put sessions into the scope', function () {
     httpBackend.flush();
 
     expect(scope.sessions.length).toBe(1);
@@ -47,7 +47,7 @@ describe('Controller: MainCtrl', function () {
     expect(scope.currentSession).toBe(scope.sessions[0]);
   });
 
-  it('should logout method remove all sessions', function () {
+  it('should logout method remove all sessions from the scope', function () {
     scope.logout();
     httpBackend.flush();
 
@@ -55,7 +55,7 @@ describe('Controller: MainCtrl', function () {
     expect(scope.currentSession).toBe(undefined);
   });
 
-  it('should showLoginDialog show dialog', function () {
+  it('should showLoginDialog show dialog on screen', function () {
     spyOn(mdDialog, 'show');
 
     scope.showLoginDialog();
