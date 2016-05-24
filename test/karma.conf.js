@@ -36,6 +36,17 @@ module.exports = function(config) {
       'test/spec/**/*.js'
     ],
 
+    // Code coverage report
+    reporters: ['progress', 'coverage'],
+    preprocessors: {
+      'app/scripts/**/*.js': ['coverage']
+    },
+    coverageReporter: {
+      type: 'lcov',
+      dir: 'coverage',
+      subdir: '.'
+    },
+
     // list of files / patterns to exclude
     exclude: [
     ],
@@ -58,7 +69,8 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       'karma-phantomjs-launcher',
-      'karma-jasmine'
+      'karma-jasmine',
+      'karma-coverage'
     ],
 
     // Continuous Integration mode
