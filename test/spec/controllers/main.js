@@ -7,7 +7,8 @@ describe('Controller: MainCtrl', function () {
 
   var MainCtrl,
     scope,
-    httpBackend;
+    httpBackend,
+    mdDialog;
 
   var expectedSession = {
     id: 1,
@@ -16,8 +17,10 @@ describe('Controller: MainCtrl', function () {
   };
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function (API, $controller, $rootScope, $injector) {
+  beforeEach(inject(function (API, $controller, $rootScope, $injector, _$mdDialog_) {
     scope = $rootScope.$new();
+
+    mdDialog = _$mdDialog_;
 
     httpBackend = $injector.get('$httpBackend');
     httpBackend.whenGET(API.baseUrl + '/0/sessions/')
@@ -33,9 +36,7 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should getSessions method put API sessions into the scope', function () {
-    expect(typeof(scope.getSessions)).toBe('function');
-
+  it('should getSessions method get sessions', function () {
     httpBackend.flush();
 
     expect(scope.sessions.length).toBe(1);
@@ -46,9 +47,7 @@ describe('Controller: MainCtrl', function () {
     expect(scope.currentSession).toBe(scope.sessions[0]);
   });
 
-  it('should logout method remove all sessions from scope', function () {
-    expect(typeof(scope.logout)).toBe('function');
-
+  it('should logout method remove all sessions', function () {
     scope.logout();
     httpBackend.flush();
 
@@ -56,8 +55,12 @@ describe('Controller: MainCtrl', function () {
     expect(scope.currentSession).toBe(undefined);
   });
 
-  it('should attach showLoginDialog function to the scope', function () {
-    expect(typeof(scope.showLoginDialog)).toBe('function');
+  it('should showLoginDialog show dialog', function () {
+    spyOn(mdDialog, 'show');
+
+    scope.showLoginDialog();
+
+    expect(mdDialog.show).toHaveBeenCalled();
   });
 
 });
