@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngMaterial'
+    'ngMaterial',
+    'ng-mfb'
   ])
   .factory('API', function ($resource) {
     var baseUrl = 'http://chileayuda.lo:8000';
@@ -55,6 +56,23 @@ angular
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
         // controllerAs: 'home'
+      })
+      .when('/incidents', {
+        templateUrl: 'views/incidents.html',
+        controller: 'IncidentsCtrl'
+        // controllerAs: 'incidents'
+      })
+      .when('/incidents/:incidentId/reports', {
+        templateUrl: 'views/reports_list.html',
+        resolve: {
+          params: function ($route) {
+            return {
+              incidentId: $route.current.params.incidentId
+            };
+          }
+        },
+        controller: 'ReportsListCtrl'
+        // controllerAs: 'reports'
       })
       .otherwise({
         redirectTo: '/'

@@ -13,7 +13,7 @@ describe('Controller: MainCtrl', function () {
   }));
 
   it('should getLoginUrl method return API URL', function () {
-    var expected = api.baseUrl + '/0/auth/login/facebook' 
+    var expected = api.baseUrl + '/0/auth/login/facebook';
 
     expect(api.getLoginUrl('facebook')).toBe(expected);
   });
