@@ -4,7 +4,8 @@ node_js:
 before_script:
   - gem update --system
   - gem install compass
-  - npm install -g bower grunt-cli karma-coverage coveralls
+  - npm install -g bower grunt-cli
+  - npm install karma-coverage coveralls
   - bower install
 after_script:
   - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
