@@ -60,6 +60,11 @@ describe('Controller: MapCtrl', function () {
 
     expect(popupScope.id).toBe(1);
     expect(popupScope.name).toBe('Fake report');
+
+    popupScope = scope.map.markers[0].getMessageScope()
+
+    expect(popupScope.id).toBe(1);
+    expect(popupScope.name).toBe('Fake report');
   });
 
   it('should set map center', function () {
