@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngMaterial',
-    'ng-mfb'
+    'ng-mfb',
+    'leaflet-directive'
   ])
   .factory('API', function ($resource) {
     var baseUrl = 'http://chileayuda.lo:8000';
@@ -73,6 +74,18 @@ angular
         },
         controller: 'ReportsListCtrl'
         // controllerAs: 'reports'
+      })
+      .when('/incidents/:incidentId/map', {
+        templateUrl: 'views/map.html',
+        resolve: {
+          params: function ($route) {
+            return {
+              incidentId: $route.current.params.incidentId
+            };
+          }
+        },
+        controller: 'MapCtrl'
+        // controllerAs: 'map'
       })
       .otherwise({
         redirectTo: '/'
