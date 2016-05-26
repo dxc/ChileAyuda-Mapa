@@ -40,7 +40,7 @@ angular.module('chileAyudaMapaApp')
           message: $scope.messageTemplate,
           layer: 'emergencias',
           getMessageScope: function () {
-            return $scope.createPopupScope(report)
+            return $scope.createPopupScope(report);
           }
         };
         $scope.map.markers.push(marker);

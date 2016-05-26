@@ -1,9 +1,10 @@
 <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center" ng-show="reports.length > 0">
-  <div flex-xs flex-gt-xs="50" layout="column" >
+  <div flex-md=80 flex-gt-md="80" layout="column" >
     <md-card ng-repeat="report in reports">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{ report.name }}</span>
+          <span class="md-subhead">{{ report.date.fromNow() }} por {{ report.user.username }}</span>
         </md-card-title-text>
       </md-card-title>
       <md-card-content>

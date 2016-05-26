@@ -20,5 +20,9 @@ angular.module('chileAyudaMapaApp')
     };
 
     $scope.incidentId = params.incidentId;
-    $scope.reports = API.Reports.query({incidentId: $scope.incidentId});
+    $scope.reports = API.Reports.query({incidentId: $scope.incidentId}, function () {
+      angular.forEach($scope.reports, function (report) {
+        report.date = moment(report.date);
+      });
+    });
   });

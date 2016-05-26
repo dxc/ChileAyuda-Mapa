@@ -7,8 +7,7 @@ describe('Controller: MapCtrl', function () {
 
   var MapCtrl,
     scope,
-    httpBackend,
-    mdDialog;
+    httpBackend;
 
   var expectedIncident = {
     id: 1,
@@ -61,7 +60,7 @@ describe('Controller: MapCtrl', function () {
     expect(popupScope.id).toBe(1);
     expect(popupScope.name).toBe('Fake report');
 
-    popupScope = scope.map.markers[0].getMessageScope()
+    popupScope = scope.map.markers[0].getMessageScope();
 
     expect(popupScope.id).toBe(1);
     expect(popupScope.name).toBe('Fake report');

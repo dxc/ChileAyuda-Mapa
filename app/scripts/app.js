@@ -87,6 +87,19 @@ angular
         controller: 'MapCtrl'
         // controllerAs: 'map'
       })
+      .when('/incidents/:incidentId/reports/:reportId', {
+        templateUrl: 'views/reports_details.html',
+        resolve: {
+          params: function ($route) {
+            return {
+              incidentId: $route.current.params.incidentId,
+              reportId: $route.current.params.reportId
+            };
+          }
+        },
+        controller: 'ReportsDetailsCtrl'
+        // controllerAs: 'reports'
+      })
       .otherwise({
         redirectTo: '/'
       });
