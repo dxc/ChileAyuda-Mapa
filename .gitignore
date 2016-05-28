@@ -4,3 +4,11 @@
 /.sass-cache
 /bower_components
 /coverage
+
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/ChileAyuda-Mapa.iml
+.idea/.name
