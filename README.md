@@ -6,10 +6,24 @@
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.15.1.
 
-## Build & development
+### Develop instructions
 
-Run `grunt` for building and `grunt serve` for preview.
+##### 1. INSTALL SYSTEM REQUIREMENTS
+	# Ruby Compass
+	gem install compass
 
-## Testing
+	# Node.js packages
+	npm install -g grunt-cli bower yo generator-karma generator-angular
 
-Running `grunt test` will run the unit tests with karma.
+##### 2. INSTALL PROJECT REQUIREMENTS
+	# Node.js packages
+	npm install
+
+	# Bower packages
+	bower install
+
+##### 3. RUN WEB SERVICE
+    grunt serve
+
+### Run tests (Karma)
+    grunt test
