@@ -31,5 +31,4 @@ version 0.15.1.
 ### Heroku related
 
 #### Buildpacks (before deploying)
-    heroku buildpacks:add heroku/ruby
-    heroku buildpacks:add heroku/nodejs
+    heroku buildpacks:add https://github.com/nknj/heroku-buildpack-yo-angular.git
