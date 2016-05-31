@@ -1,0 +1,33 @@
+<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center top" ng-show="incidents.length > 0">
+  <div flex-xs flex-gt-md="30" layout="column" ng-repeat="incident in incidents">
+    <md-card>
+      <img ng-src="http://placehold.it/920x400" class="md-card-image" alt="{{ incident.name }}" />
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{ incident.name }}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="start center">
+        <md-card-icon-actions>
+          <md-button class="md-fab md-mini md-primary">
+            <md-icon md-svg-src="bower_components/Ionicons/src/social-facebook.svg" aria-label="Facebook share"></md-icon>
+          </md-button>
+        </md-card-icon-actions>
+        <md-button class="md-raised md-primary" href="/#/incidents/{{ incident.id }}/reports">Reportes</md-button>
+        <md-button class="md-raised md-primary" href="/#/incidents/{{ incident.id }}/map">Mapa</md-button>
+      </md-card-actions>
+      <md-card-content>
+        <p>{{ incident.description }}</p>
+      </md-card-content>
+    </md-card>
+  </div>
+</md-content>
+<md-content class="md-padding" layout-xs="column" layout="row" max-zoom="11" layout-align="center center" ng-hide="incidents.length > 0">
+  <md-list>
+    <md-list-item class="md-3-line">
+      <div class="md-list-item-text">
+        <p style="text-align: center;">No hay incidentes disponibles</p>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>

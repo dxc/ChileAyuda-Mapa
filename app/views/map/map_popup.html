@@ -1,0 +1,15 @@
+<md-content style="width: 300px;">
+  <div>
+    <form>
+      <div>
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Nombre</label>
+          <input ng-model="name" readonly />
+        </md-input-container>
+      </div>
+      <div>
+        <md-button class="md-primary" href="/#/incidents/{{ incident.id }}/reports/{{ id }}" style="float: right;">Detalles</md-button>
+      </div>
+    </form>
+  </div>
+</md-content>

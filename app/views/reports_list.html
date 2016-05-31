@@ -1,0 +1,32 @@
+<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center" ng-show="reports.length > 0">
+  <div flex-md=80 flex-gt-md="80" layout="column" >
+    <md-card ng-repeat="report in reports">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{ report.name }}</span>
+          <span class="md-subhead">{{ report.date.fromNow() }} por {{ report.user.username }}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p style="text-align: justify;">{{ report.description }}</p>
+      </md-card-content>
+      <md-card-actions class="md-padding" layout="row" layout-align="start center">
+        <md-card-icon-actions>
+        </md-card-icon-actions>
+        <md-button class="md-raised md-primary" href="/#/incidents/{{ incidentId }}/reports/{{ report.id }}">Detalles</md-button>
+      </md-card-actions>
+    </md-card>
+  </div>
+</md-content>
+<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center" ng-hide="reports.length > 0">
+  <md-list>
+    <md-list-item class="md-3-line">
+      <div class="md-list-item-text">
+        <p style="text-align: center;">No hay reportes disponibles para este incidente</p>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>
+<nav mfb-menu position="br" effect="zoomin" active-icon="ion-close-round" resting-icon="ion-plus-round" toggling-method="click">
+  <button mfb-button icon="ion-edit" ng-click="showReportNewDialog($event)" label="Nuevo reporte"></button>
+</nav>
