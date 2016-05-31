@@ -36,9 +36,10 @@ module.exports = function(config) {
       'bower_components/moment/moment.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
+      '.tmp/scripts/config.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'test/spec/**/*.js',
     ],
 
     // Code coverage report

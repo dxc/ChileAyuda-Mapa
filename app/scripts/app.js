@@ -10,6 +10,7 @@
  */
 angular
   .module('chileAyudaMapaApp', [
+    'config',
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -19,8 +20,9 @@ angular
     'ng-mfb',
     'leaflet-directive'
   ])
-  .factory('API', function ($resource) {
-    var baseUrl = 'http://chileayuda.lo:8000';
+  .factory('API', function (environment, $resource) {
+
+    var baseUrl = environment.apiBaseUrl;
 
     return {
       baseUrl: baseUrl,
