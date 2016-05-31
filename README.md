@@ -27,3 +27,9 @@ version 0.15.1.
 
 ### Run tests (Karma)
     grunt test
+
+### Heroku related
+
+#### Buildpacks (before deploying)
+    heroku buildpacks:add heroku/ruby
+    heroku buildpacks:add heroku/nodejs
