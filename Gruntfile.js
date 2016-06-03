@@ -39,7 +39,7 @@ module.exports = function (grunt) {
         constants: {
           environment: {
             name: 'development',
-            apiBaseUrl: 'http://chileayuda.lo:8000'
+            apiBaseUrl: process.env.API_BASE_URL || 'http://chileayuda.lo:8000'
           }
         }
       },
@@ -95,10 +95,10 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: 9000,
+        port: process.env.PORT || 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
-        livereload: 35729
+        hostname: process.env.IP || '0.0.0.0',
+        livereload: process.env.LIVERELOAD || 35729
       },
       livereload: {
         options: {
