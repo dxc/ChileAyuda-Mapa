@@ -1,0 +1,12 @@
+language: node_js
+before_install:
+  - gem update --system
+  - gem install compass
+node_js:
+  - '5.1'
+before_script:
+  - npm install -g bower grunt-cli
+  - npm install karma-coverage coveralls
+  - bower install
+after_script:
+  - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js

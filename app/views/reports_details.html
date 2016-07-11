@@ -1,0 +1,108 @@
+<md-content layout-gt-sm="row" layout-align="center top" layout-padding>
+  <div flex-md=70 flex-gt-md=50>
+    <form>
+      <div layout-gt-xs="row">
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Incidente</label>
+          <input ng-model="data.report.incident.name" readonly />
+        </md-input-container>
+      </div>
+      <div layout-gt-xs="row">
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Nombre</label>
+          <input ng-model="data.report.name" readonly />
+        </md-input-container>
+      </div>
+      <div layout-gt-xs="row">
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Usuario</label>
+          <input ng-model="data.report.user.username" readonly />
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Fecha</label>
+          <input value="{{ data.report.date.format('DD/MM/YYYY hh:mm:ss') }}" readonly />
+        </md-input-container>
+      </div>
+      <div layout-gt-xs="row">
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Región</label>
+          <input ng-model="data.report.commune.province.region.name" readonly />
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Provincia</label>
+          <input ng-model="data.report.commune.province.name" readonly />
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Comuna</label>
+          <input ng-model="data.report.commune.name" readonly />
+        </md-input-container>
+      </div>
+      <div layout-gt-xs="row">
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Latitud</label>
+          <input ng-model="data.report.coordinates.latitude" readonly />
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Longitud</label>
+          <input ng-model="data.report.coordinates.longitude" readonly />
+        </md-input-container>
+      </div>
+      <div layout-gt-xs="row">
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Fallecidos</label>
+          <input value="{{ data.report.details.deceased_people || 'No informado'}}" readonly />
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Heridos</label>
+          <input value="{{ data.report.details.injured_people || 'No informado'}}" readonly />
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Desaparecidos</label>
+          <input value="{{ data.report.details.missing_people || 'No informado'}}" readonly />
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Edificios dañados</label>
+          <input value="{{ data.report.details.damaged_buildings || 'No informado'}}" readonly />
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Vahículos dañados</label>
+          <input value="{{ data.report.details.damaged_vehicles || 'No informado'}}" readonly />
+        </md-input-container>
+      </div>
+      <div layout-gt-xs="row">
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Descripción</label>
+          <textarea ng-model="data.report.description" readonly></textarea> 
+        </md-input-container>
+      </div>
+    </form>
+  </div>
+  <div flex-gt-md=30>
+    <form>
+      <div layout-gt-xs="row">
+        <leaflet markers="map.markers" lf-center="map.center" width="100%" height="300"></leaflet>
+      </div>
+      <div layout-gt-xs="row">
+        <md-content>
+          <md-list>
+            <md-subheader class="md-no-sticky">Comentarios</md-subheader>
+            <md-list-item class="md-3-line md-long-text" ng-repeat="comment in data.comments" ng-show="data.comments.length > 0">
+              <img ng-src="http://placehold.it/50x50" class="md-avatar" alt="{{ comment.user.username }} avatar" />
+              <div class="md-list-item-text">
+                <h3>{{ comment.user.username }}</h3>
+                <h4>{{ comment.date.fromNow() }}</h4>
+                <p>{{ comment.text }}</p>
+              </div>
+              </div>
+            </md-list-item>
+            <md-list-item class="md-2-line" ng-hide="data.comments.length > 0">
+              <div class="md-list-item-text">
+                <p style="text-align: center;">Este reporte no tiene comentarios</p>
+              </div>
+            </md-list-item>
+          </md-list>
+        </md-content>
+      </div>
+    </form>
+  </div>
+</md-content>

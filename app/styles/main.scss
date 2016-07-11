@@ -1,0 +1,28 @@
+// bower:scss
+@import "ng-material-floating-button/mfb/src/mfb.scss";
+// endbower
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+.map_main_container {
+  position: fixed;
+  width: 100%;
+  height: calc(100% - 64px);
+
+  .angular-leaflet-map {
+    height: 100%;
+  }
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0;
+}

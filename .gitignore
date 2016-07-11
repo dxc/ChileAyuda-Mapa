@@ -1,3 +1,10 @@
+/node_modules
+/dist
+/.tmp
+/.sass-cache
+/bower_components
+/coverage
+
 .idea/workspace.xml
 .idea/vcs.xml
 .idea/modules.xml
